@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字逐个显示</title>
+	<style>
+		div>p:nth-child(1){
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<p class="li-none" id="text1">标记我的生活</p>
+		<p class="page2-txt" id="text2"></p>
+	</div>
+	<script>
+		var text1=document.getElementById('text1'),
+		text2=document.getElementById('text2');
+		i=0;
+		timer=setInterval(function()
+		{
+			text2.innerHTML=text1.innerHTML.substring(0,i);
+			i++;
+			if(text2.innerHTML==text1.innerHTML)
+			{
+				clearInterval(timer);
+			}
+		},1000);
+
+	</script>
+</body>
+</html>

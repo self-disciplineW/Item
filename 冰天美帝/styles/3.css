@@ -1,0 +1,67 @@
+html,body,ul,li,dl,dt,dd,p,a,input,img,form,h3{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+
+	list-style: none;
+	}
+	a{
+    	 text-decoration:none;
+    	 color: black;
+	}
+	body{
+		background-color: #F4F4F4;
+	}
+	/*
+	2.摆盒子(从外向内，自上而下)
+	 */
+	/*
+	3.效果
+	*/
+	 
+	 
+	.containter{height: 100%;}
+	.header-bg{background-color: #fff; border:3px solid #C4C4C4; }
+	.header{width: 1200px;margin-left:auto;margin-right:auto;overflow: hidden;
+		padding: 30px 0;height: 60px;}
+	.header>a{float: left;}
+	.header>a img{}
+	.header>form{float: right;width: 320px;}
+	.header input.btn1{width: 200px;height: 30px;border-radius: 5px;}
+	.header input.btn2{width: 30px;height: 30px;background:#D5077F; background-image: url(../imgs/sch2.png);}
+	.header span{}
+	.header span a{}
+	.header>ul{margin-left: 180px;margin-right: 330px;margin-top: 8px;}
+	.header>ul ul{display: none;}
+	.header>ul>li{float: left;padding-bottom: 10px;margin-right: 40px;}
+	.header>ul>li:hover ul{display: block; }
+	.header>ul>li:hover{border-bottom: 3px solid blue; }
+	.header li a{font-size: 14px;color: #666;}
+
+	
+
+	.banner{background-image: url(../imgs/banner2.png);width: 1160px;height: 395px;margin:auto;position: relative;}
+	.ad-word{width: 220px;height: 43px;font-size: 14px;color: red;position: absolute;bottom: 0;left: 0}
+ 	.ad-word div{display: inline-block;color: #FDFDFD;text-align: center;}
+	.ad-word>a .span1{width: 105px;height: 43px;background: #C4C4C4;}
+	.ad-word>a .span2{width: 105px;height: 43px;background: #000000;}
+
+
+
+	.pagebody{width: 1160px;height: 775px;margin:auto; margin-top: 20px;}
+	.main{width: 880px;height: 775px; }
+	.main .product-list{float: left;width: 280px;height: 380px;background: #fff;margin:0 12px 20px 0;
+		position: relative;}
+	.main .product-list dl dd.gouwu{position: absolute;bottom: 12px;left: 12px;
+		background: #333333;height: 40px;width: 260px;text-align: center;line-height: 40px;margin:0 auto; 
+	}
+	.main .product-list dl dd a{color: #F4F4F4;}
+
+	.aside{float:right;width: 260px;}
+	.aside .aside-box1{width: 258px;height: 80px;}
+	.aside .aside-box2{width: 258px;height: 80px;}
+
+
+
+	.footer{}

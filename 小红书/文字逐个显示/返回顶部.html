@@ -1,0 +1,28 @@
+var topbtn=document.getElementsByClassName('fixed-top')[0];
+//获取视口的高度
+var clientHeight=document.documentElement.clientHeight;
+window.onscroll=function(){
+	//获取页面滚动的高度
+	var topHeight=document.body.scrollTop||document.documentElement.scrollTop;
+	if(topHeight>clientHeight){
+		topbtn.style.display="block";
+	}
+	else{
+		topbtn.style.display="none";
+	}
+}
+
+
+var time;
+topbtn.onclick=function(){
+	time=setInterval(top,30);
+	function top(){
+		var topHeight1=document.body.scrollTop||document.documentElement.scrollTop;
+		var n=Math.floor(-topHeight1/4);
+		document.documentElement.scrollTop=document.body.scrollTop=topHeight1+n;
+		if(topHeight1==0)
+		{
+			clearInterval(time);
+		}
+	}
+}

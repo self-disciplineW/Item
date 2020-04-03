@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>【荣耀官网】华为荣耀手机|honor</title>
+	<link rel="shortcut icon" href="picture/favicon.ico">
+	<style>
+		html,body,div,ul,li,dl,dt,dd,a{
+			margin: 0;
+			padding: 0;
+		}
+		li{list-style: none;}
+		a{text-decoration: none;}
+		.box{}
+		/*头部*/
+		.head{width: 100%;height: 90px;box-shadow: 0px 5px 5px #E9E9E9;position: fixed;z-index: 10;}
+		/*页眉*/
+		.header{height: 30px;background: linear-gradient(#007DCC,#00AFDE);}
+		.header>div{width: 1200px;height: 30px;margin: 0 auto;}
+		.header a{color: #fff;font-size: 14px;}
+		/*商城*/
+		.header-shop{float: right;margin-right: 50px;margin-top: 3px;}
+		.header-shop>ul{}
+		.header-shop>ul>li{display: inline-block;}
+		.header-shop>ul>li>a{margin: 0 5px;}
+		/*登录*/
+		.header-register{float: right;margin-top: 3px;}
+		.header-register>ul{}
+		.header-register>ul *{vertical-align:bottom;}
+		.header-register>ul>li{display: inline-block;}
+		.header-register>ul>li>a{margin: 0 2px;}
+		/*搜索栏*/
+		.navigation{height: 60px;background-color: #fff;}
+		.navigation>div{width: 1200px;height: 60px;margin: 0 auto;}
+		/*logo图片*/
+		.logo{float: left;line-height: 60px;}
+		.logo>a{}
+		.logo>img{}
+		/*引导*/
+		.guide{float: left;margin-left: 40px;}
+		.guide>ul{}
+		.guide>ul>li{position: relative;display: inline-block;}
+		.guide>ul>li>a{line-height: 60px;height: 20px;color: #888;font-size: 16px;margin: 0 10px;padding:0 10px 17px 10px;}
+		.guide>ul>li>a:hover{height: 18px;border-bottom: 3px solid #19BAE5;}
+
+		.guide>ul>li:hover .menu{height: 276px;}
+		/*弹出菜单*/
+		.menu{position: absolute;background: linear-gradient(#007DCF,#07AAD3);width: 1310px;height: 0px;left: -200px;transition:height 0.2s linear;overflow: hidden;}
+		.menu>div{width: 174px;height: 186px;/*border: 1px solid red;*/position: absolute;top: 38px;}
+		.menu>div>dl *{line-height: 39px;color: #fff;}
+		.menu>div>dl>dt{margin-top: -10px;font-size: 18px;}
+		.menu>dt{font-size: 18px;}
+		
+		.phone{left: 50px;}
+
+		.ipad{left: 226px;}
+		
+		.dress{left: 402px;}
+		
+		.family{left: 578px;}
+
+		.parts{left: 754px;}
+		
+		.honor10{width: 295px;height: 204px;right: 178px;}
+		.honor10>dl{}
+		.honor10>dl>dt{}
+		.honor10>dl>dd{margin-top: 14px;}
+		.honor10>dl>dd>a{}
+		/*搜索*/
+		.search{width: 250px;float: right;line-height: 60px;margin-top: 15px;position: relative;}
+		.search>form{}
+		.search>form>input:nth-child(1){width: 240px;height: 32px;border-radius: 32px;border: 1px solid #959595;text-indent: 18px;outline: none;float: right;}
+		.search>form>input:nth-child(1)~div{transition: opacity 0.5s;opacity: 1s;}
+		.search>form>input:nth-child(1):focus~div{opacity: 0;}
+		.search>form>input:nth-child(3){position: absolute;right: 8px;top: 7px;width: 24px;height: 24px;background: url('picture/icon-search-30.png') no-repeat;background-size:95%;outline: none;border: none;cursor: pointer;}
+
+		.cw8C{position: absolute;right: 32px;top: -12px;font-size: 12px;}
+		.cw8C>a{background-color: #EEEEEE;color: #707070;margin: 0 4px;padding: 3px;border-radius: 4px;}
+		.cw8C>a:hover{background-color: #09B9E2;color: #fff;}
+
+		.name{width: 120px;height: 60px;position: fixed;right: 15px;top: 260px;z-index: 15;background-color: #00B5E2;border-radius: 8px;font-family: "STXingkai";}
+		.name li{text-align: center;font-size: 24px;line-height: 30px;}
+
+		.carousel{/*轮播图*/width: 100%;height: 600px;}
+
+		.pictures{/*图片区*/width: 1200px;height: 600px;margin:0 auto;position: relative;}
+
+		.photograph{/*切换*/position: relative;height: 600px;}
+		
+
+		.more{width: 1200px;height: 420px;margin: 0 auto;}
+		.more-head{height: 30px;line-height: 30px;}
+		.more-head>.left{float: left;font-size: 24px;border-left: 3px solid #19BAE5;padding-left: 6px;}
+		.more-head>.right{float: right;}
+		.more-head>.right>a{color: #aaa;}
+
+		.more-body{width: 1200px;height: 370px;position: relative;}
+		.more-body>div{float: left;margin: 0 6px;}
+		.more-body>div:hover{margin-top: -1px;box-shadow: 4px 4px 10px #ccc,-4px 0px 10px #ccc;}
+		.one{width: 285px;height: 370px;}
+		.one>ul{position: relative;}
+		.one>ul>li:nth-child(1){font-size: 18px;margin-top: 34px;margin-left: 106px;}
+		.one>ul>li:nth-child(2){font-size: 14px;margin-top: 12px;margin-left: 99px;}
+		
+		.one>ul>li:nth-child(3){margin-left: 50px;margin-top: 15px;}
+		.one>ul>li:nth-child(4){}
+		.one>ul>li:nth-child(4)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #E5004F;border-color: #E5004F;color: #fff;margin-left: 25px;margin-top: 25px;}
+		.one>ul>li:nth-child(5)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #fff;border-color: #ccc;color: #707070;position: absolute;top: 280px;left: 150px;}
+		.two{width: 285px;height: 370px;}
+		.two>ul{position: relative;}
+		.two>ul>li:nth-child(1){font-size: 18px;margin-top: 34px;margin-left: 106px;}
+		.two>ul>li:nth-child(2){font-size: 14px;margin-top: 12px;margin-left: 85px;}
+		
+		.two>ul>li:nth-child(3){margin-left: 50px;margin-top: 15px;}
+		.two>ul>li:nth-child(4){}
+		.two>ul>li:nth-child(4)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #E5004F;border-color: #E5004F;color: #fff;margin-left: 25px;margin-top: 25px;}
+		.two>ul>li:nth-child(5)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #fff;border-color: #ccc;color: #707070;position: absolute;top: 280px;left: 150px;}
+		.three{width: 285px;height: 370px;}
+		.three>ul{position: relative;}
+		.three>ul>li:nth-child(1){font-size: 18px;margin-top: 34px;margin-left: 106px;}
+		.three>ul>li:nth-child(2){font-size: 14px;margin-top: 12px;margin-left: 90px;}
+		
+		.three>ul>li:nth-child(3){margin-left: 50px;margin-top: 15px;}
+		.three>ul>li:nth-child(4){}
+		.three>ul>li:nth-child(4)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #E5004F;border-color: #E5004F;color: #fff;margin-left: 25px;margin-top: 25px;}
+		.three>ul>li:nth-child(5)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #fff;border-color: #ccc;color: #707070;position: absolute;top: 280px;left: 150px;}
+		.four{width: 285px;height: 370px;}
+		.four>ul{position: relative;}
+		.four>ul>li:nth-child(1){font-size: 18px;margin-top: 34px;margin-left: 106px;}
+		.four>ul>li:nth-child(2){font-size: 14px;margin-top: 12px;margin-left: 106px;}
+		
+		.four>ul>li:nth-child(3){margin-left: 50px;margin-top: 15px;}
+		.four>ul>li:nth-child(4){}
+		.four>ul>li:nth-child(4)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #E5004F;border-color: #E5004F;color: #fff;margin-left: 25px;margin-top: 25px;}
+		.four>ul>li:nth-child(5)>input{width: 112px;height: 32px;border-radius: 5px;background-color: #fff;border-color: #ccc;color: #707070;position: absolute;top: 280px;left: 150px;}
+		.shopping{width: 1200px;height: 480px;margin: 0 auto;background-image: url('picture/shopping.jpg');position: relative;}
+		.shopping>div:nth-child(1){width: 353px;height: 50px;background-image: url('picture/shopping1.png');position: absolute;margin-left: 245px;top: 200px;}
+		.shopping>div:nth-child(2){width: 175px;height: 43px;background-image: url('picture/shopping2.png');margin-left: 334px;position: absolute;top: 277px;}
+		.shopping>div:nth-child(2)>a{position: absolute;left: 50px;top: 8px;color: #fff;}
+		.shopping>div:nth-child(3){font-size: 18px;color: #fff;position: absolute;top: 50px;right: 90px;}
+		.shopping>div:nth-child(4){font-size: 14px;color: #fff;position: absolute;top: 90px;right: 85px;}
+		.shopping>div:nth-child(5)>a{width: 104px;height: 104px;background-image: url('picture/shopping3.png');position: absolute;top: 160px;right: 207px;}
+		.shopping>div:nth-child(6)>a{width: 104px;height: 104px;background-image: url('picture/shopping4.png');position: absolute;top: 160px;right: 60px;}
+		.shopping>div:nth-child(7)>a{width: 104px;height: 104px;background-image: url('picture/shopping5.png');position: absolute;top: 317px;right: 207px;}
+		.shopping>div:nth-child(8)>a{width: 104px;height: 104px;background-image: url('picture/shopping6.png');position: absolute;top: 317px;right: 60px;}
+
+		.news{width: 100%;height: 379px;}
+		.news>div{width: 1200px;height: 379px;margin: 0 auto;position: relative;}
+		.news>div>div{width: 1200px;height: 30px;margin: 0 auto;}
+		.news>div>div:nth-child(1)>div{float: left;font-size: 24px;border-left: 3px solid #19BAE5;padding-left: 6px;}
+		.news>div>div:nth-child(1)>a{float: right;color: #aaa;line-height: 30px;}
+
+		.news>div>div:nth-child(2){position: absolute;width: 1200px;height: 329px;margin: 0 auto;}
+		.news>div>div:nth-child(2)>div{float: left;margin: 0 10px;}
+		
+		
+		.news>div>div:nth-child(2)>div>a{display: block;width: 380px;height: 270px;overflow: hidden;}
+
+
+		.news>div>div:nth-child(2)>div>a>img{transition: transform 0.2s linear;}
+		.news>div>div:nth-child(2) div>a>img:hover{transform:scale(1.1);}
+
+		.news>div>div:nth-child(2) div>a>ul>li:nth-child(1){color: #333333;margin-left: 10px;display: block;}
+		.news>div>div:nth-child(2) div>a>ul>li:nth-child(2){color: #aaa;margin-left: 10px;}
+
+		
+
+		.service{width: 1200px;height: 413px;margin: 0 auto;}
+		.service>div{width: 600px;height: 413px;float: left;}
+		.service>div:nth-child(1){background-image: url('picture/service1.jpg');position: relative;}
+		.service>div:nth-child(2){background-image: url('picture/service2.jpg');position: relative;}
+		.service>div:nth-child(1)>div:nth-child(1){font-size: 30px;color: #fff;position: absolute;top: 120px;left: 240px;}
+		.service>div:nth-child(1)>div:nth-child(2){font-size: 18px;color: #fff;position: absolute;top: 185px;left: 238px;}
+		.service>div:nth-child(1)>div:nth-child(3){width: 175px;height: 43px;background-image: url('picture/shopping2.png');margin-top: 230px;margin-left: 213px;}
+		.service>div:nth-child(1)>div:nth-child(3)>a{color: #fff;position: absolute;top: 238px;left: 265px;}
+
+
+		.service>div:nth-child(2)>div:nth-child(1){font-size: 30px;color: #fff;position: absolute;top: 120px;left: 240px;}
+		.service>div:nth-child(2)>div:nth-child(2){font-size: 18px;color: #fff;position: absolute;top: 185px;left: 238px;}
+		.service>div:nth-child(2)>div:nth-child(3){width: 175px;height: 43px;background-image: url('picture/shopping2.png');margin-top: 230px;margin-left: 213px;}
+		.service>div:nth-child(2)>div:nth-child(3)>a{color: #fff;position: absolute;top: 238px;left: 265px;}
+		
+		
+		.contact{width: 100%;height: 260px;background: linear-gradient(#007DCC,#00AFDE);}
+		.contact>div{width: 1200px;height: 260px;margin: 0 auto;}
+		.contact>div>div{float: left;margin-top: 42px;margin: 25px;}
+		.contact>div>div>ul>li{margin-top: 15px;}
+
+		.contact>div>div>ul>li>a{color: #fff;}
+
+		.end{width: 1200px;height: 100px;margin: 0 auto;}
+		.end>div:nth-child(1){height: 29px;position: relative;}
+		.end>div:nth-child(1)>ul{position: absolute;left: 0px;}
+		.end>div:nth-child(1)>ul>li{display: inline-block;color: #3F3F3F;font-size: 14px;}
+		.end>div:nth-child(1)>ul>li>a{color: #3F3F3F;}
+
+		.end>div:nth-child(2){height: 31px;}
+		.end>div:nth-child(2)>ul{}
+		.end>div:nth-child(2)>ul>li{display: inline-block;color: #3F3F3F;font-size: 14px;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="head"><!-- 头部 -->
+			<div class="header"><!-- 页眉 -->
+				<div>
+					<div class="header-register"><!-- 登录 -->
+						<ul>
+							<li><a href=""><img src="picture/user.png" alt=""></a></li>
+							<li><a href="">登录</a></li>
+							<li><a href="">|</a></li>
+							<li><a href="">注册</a></li>
+						</ul>
+					</div>
+					<div class="header-shop"><!-- 商城 -->
+						<ul>
+							<li><a href="">华为商城</a></li>
+							<li><a href="">花粉俱乐部</a></li>
+							<li><a href="">EMUI</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="navigation"><!-- 导航栏 -->
+				<div>
+					<div class="logo"><!-- logo图片 -->
+						<a href=""><img src="picture/logo.png" alt=""></a>
+					</div>
+					<div class="guide"><!-- 引导 -->
+						<ul>
+							<li>
+								<a href="">产品</a>
+								<div class="menu"><!-- 弹出菜单 -->
+									<div class="phone">
+										<dl>
+											<dt><a href="">手机</a></dt>
+											<dd><a href="">荣耀畅玩8C</a></dd>
+											<dd><a href="">荣耀8X</a></dd>
+											<dd><a href="">荣耀8X Max</a></dd>
+											<dd><a href="">更多&gt;</a></dd>
+										</dl>
+									</div>
+									<div class="ipad">
+										<dl>
+											<dt><a href="">平板</a></dt>
+											<dd><a href="">荣耀magicbook-锐龙版</a></dd>
+											<dd><a href="">荣耀MagicBook</a></dd>
+											<dd><a href="">荣耀Waterplay</a></dd>
+											<dd><a href="">更多&gt;</a></dd>
+										</dl>
+									</div>
+									<div class="dress">
+										<dl>
+											<dt><a href="">穿戴设备</a></dt>
+											<dd><a href="">荣耀手环4</a></dd>
+											<dd><a href="">荣耀畅玩手环A2</a></dd>
+											<dd><a href="">荣耀手表S1</a></dd>
+											<dd><a href="">更多&gt;</a></dd>
+										</dl>
+									</div>
+									<div class="family">
+										<dl>
+											<dt><a href="">智能家庭</a></dt>
+											<dd><a href="">荣耀分布式路由</a></dd>
+											<dd><a href="">荣耀路由2</a></dd>
+											<dd><a href="">荣耀路由X1增强版</a></dd>
+											<dd><a href="">更多&gt;</a></dd>
+										</dl>
+									</div>
+									<div class="parts">
+										<dl>
+											<dt><a href="">配件</a></dt>
+											<dd><a href="">荣耀移动电源</a></dd>
+											<dd><a href="">荣耀自拍杆</a></dd>
+											<dd><a href="">荣耀小口哨</a></dd>
+											<dd><a href="">更多&gt;</a></dd>
+										</dl>
+									</div>
+									<div class="honor10">
+										<dl>
+											<dt>荣耀 Note10</dt>
+											<dd><a href=""><img src="picture/note10.jpg" alt=""></a></dd>
+										</dl>
+									</div>
+								</div>
+							</li>
+							<li><a href="">伙伴通</a></li>
+							<li><a href="">关于荣耀</a></li>
+							<li><a href="">荣耀科技</a></li>
+							<li><a href="">新闻评测</a></li>
+							<li><a href="">视频</a></li>
+							<li><a href="">活动</a></li>
+							<li><a href="">服务支持</a></li>
+						</ul>
+					</div>
+					<div class="search"><!-- 搜索 -->
+						<form action="">
+							<input type="text">
+							<div class="cw8C">
+								<a href="">荣耀畅玩8C</a>
+								<a href="">荣耀Note10</a>
+							</div>
+							<input type="submit" value="">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel"><!-- 广告区 -->
+			<div class="pictures" id="pictures"><!-- 图片区 -->
+				<a href=""><img src="picture/3.jpg" alt=""></a>
+			</div>
+		</div>
+		<div class="more"><!-- 相关推荐 -->
+			<div class="more-head">
+				<div class="left">相关推荐</div>
+				<div class="right"><a href="">更多&gt;</a></div>
+			</div>
+			<div class="more-body">
+				<div class="one">
+					<ul>
+						<li>荣耀Play</li>
+						<li>突破 让快更快</li>
+						<li><a href=""><img src="picture/more1.jpg" alt=""></a></li>
+						<li><input type="submit" value="立即购买>"></li>
+						<li><input type="submit" value="加入对比>"></li>
+					</ul>
+				</div>
+				<div class="two">
+					<ul>
+						<li>畅玩8C</li>
+						<li>两天一充 大内存</li>
+						<li><a href=""><img src="picture/more2.jpg" alt=""></a></li>
+						<li><input type="submit" value="立即购买>"></li>
+						<li><input type="submit" value="加入对比>"></li>
+					</ul>
+				</div>
+				<div class="three">
+					<ul>
+						<li>荣耀10</li>
+						<li>会变色更潮美</li>
+						<li><a href=""><img src="picture/more3.jpg" alt=""></a></li>
+						<li><input type="submit" value="立即购买>"></li>
+						<li><input type="submit" value="加入对比>"></li>
+					</ul>
+				</div>
+				<div class="four">
+					<ul>
+						<li>荣耀8X</li>
+						<li>千元屏霸</li>
+						<li><a href=""><img src="picture/more4.jpg" alt=""></a></li>
+						<li><input type="submit" value="立即购买>"></li>
+						<li><input type="submit" value="加入对比>"></li>
+					</ul>
+				</div>
+			</div><!-- 相关推荐 -->
+		</div>
+		<div class="shopping"><!-- 更多购物平台 -->
+			<div><!-- 1 --></div>
+			<div><a href="">点击前往></a></div>
+			<div>点击前往更多购买平台</div>
+			<div>*具体价格以实际销售平台为准</div>
+			<div><a href=""></a><!-- 3 --></div>
+			<div><a href=""></a><!-- 4 --></div>
+			<div><a href=""></a><!-- 5 --></div>
+			<div><a href=""></a><!-- 6 --></div><!-- 购物平台 -->
+		</div>
+		<div class="news"><!-- 更多消息 -->
+			<div><!-- 居中 -->
+				<div><!-- 眉 -->
+					<div>最新消息</div>
+					<a href="">更多></a>
+				</div>
+				<div><!-- 三大 -->
+					<div><!-- 单 -->
+						<a href="">
+							<!-- <div> --><img src="picture/news1.jpg" alt=""><!-- </div> -->
+						</a>
+						<a href="">
+							<ul>
+								<li>荣耀总裁赵明：大道至简，荣耀Magic2将重新...</li>
+								<li>2018-08-31</li>
+							</ul>
+						</a>
+					</div>
+					<div>
+						<a href="">
+							<!-- <div> --><img src="picture/news2.jpg" alt=""><!-- </div> -->
+						</a>
+						<a href="">
+							<ul>
+								<li>荣耀Magic2首次曝光！搭载真正全面屏、麒麟9...</li>
+								<li>2018-08-30</li>
+							</ul>
+						</a>
+					</div>
+					<div>
+						<a href="">
+							<!-- <div> --><img src="picture/news3.jpg" alt=""><!-- </div> -->
+						</a>
+						<a href="">
+							<ul>
+								<li>致敬大亚湾，荣耀总裁赵明携THE NINE液冷散...</li>
+								<li>2018-08-15</li>
+							</ul>
+						</a>
+					</div>
+				</div><!-- 最新消息 -->
+			</div>
+		</div>
+		<div class="service"><!-- 客服 -->
+			<div>
+				<div>在线客服</div>
+				<div>与专业人员联系</div>
+				<div><a href="">开始沟通></a></div>
+			</div>
+			<div>
+				<div>服务中心</div>
+				<div>你附近的服务中心</div>
+				<div><a href="">门店地址></a></div>
+			</div><!-- 客服在线 -->
+		</div>
+		<div class="contact"><!-- 关于我们 -->
+			<div>
+				<div class="first">
+					<ul>
+						<li><a href="">关于荣耀</a></li>
+						<li><a href="">荣耀大事件</a></li>
+						<li><a href="">荣耀人物</a></li>
+						<li><a href="">品牌事件</a></li>
+						<li><a href="">新闻中心</a></li>
+					</ul>
+				</div>
+				<div class="second">
+					<ul>
+						<li><a href="">产品</a></li>
+						<li><a href="">手机</a></li>
+						<li><a href="">穿戴设备</a></li>
+						<li><a href="">智能家庭</a></li>
+						<li><a href="">配件</a></li>
+					</ul>
+				</div>
+				<div class="third">
+					<ul>
+						<li><a href="">活动</a></li>
+						<li><a href="">近期活动</a></li>
+						<li><a href=""> </a></li>
+						<li><a href="">服务支持</a></li>
+						<li><a href="">在线客服</a></li>
+						<li><a href="">服务中心</a></li>
+					</ul>
+				</div>
+				<div class="fourth">
+					<ul>
+						<li><a href="">快速链接</a></li>
+						<li><a href="">物料下载</a></li>
+						<li><a href="">Vamll购机秘籍</a></li>
+						<li><a href="">移动端官网</a></li>
+						<li><a href="">伙伴通</a></li>
+						<li><a href="">华为商城</a></li>
+					</ul>
+				</div>
+				<div class="fifth">
+					<ul>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">热线电话: (24小时服务热线)</a></li>
+						<li><a href="">400-830-8300</a></li>
+						<li><a href="">800-830-8300(座机)/a></li>
+						<li><a href="">在线客服</a></li>
+					</ul>
+				</div>
+				<div class="sixth">
+					<ul>
+						<li><a href="">客服邮箱：</a></li>
+						<li><a href="">任何建议和意见都欢迎向我们反馈</a></li>
+						<li><a href="">邮件我们</a></li>
+					</ul>
+				</div>
+				<div class="seventh">
+					<ul>
+						<li><a href="">关注我们：</a></li>
+					</ul>
+				</div>
+			</div><!-- 联系方式 -->
+		</div>
+		<div class="end"><!-- 尾部 -->
+			<div>
+				<ul>
+					<li><a href="">法律声明</a></li>
+					<li>|</li>
+					<li><a href="">隐私声明</a></li>
+					<li>|</li>
+					<li><a href="">免责条款</a></li>
+					<li>|</li>
+					<li><a href="">关于cookies</a></li>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<li>Copyright &copy; 2011-2017 华为软件技术有限公司 版权所有 保留一切权利</li>
+					<li>|</li>
+					<li><img src="picture/end.png" alt="">苏公网安备 32011402010006号 苏ICP备17040376号</li>
+				</ul>
+			</div><!-- 尾部 -->
+		</div>
+	</div>
+</body>
+</html>

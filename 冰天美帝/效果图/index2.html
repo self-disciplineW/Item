@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冰天美帝</title>
+	<link rel="stylesheet" href="../styles/index2.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header-bg">
+			<div class="header"><!-- 头部 -->
+				<a href=""><img src="../imgs/logo.png" alt=""></a>
+				<form action="">
+					<input type="text" placeholder="哈根达斯" class="btn1">
+					<input type="submit" value=" " class="btn2">
+					<span>					
+						<a href="#">购物车</a>
+					</span>				
+				</form>
+				<ul>
+					<li><a href="">首页</a></li>
+					<li><a href="">新品速递</a></li>
+					<li><a href="">热卖推荐</a></li>
+					<li><a href="">商品分类</a>
+						<ul>
+							<li>
+								<a href="">哈根达斯</a>
+								<ul>
+									<li><a href="#">草莓味</a></li>
+									<li><a href="#">香蕉味</a></li>
+		 							<li><a href="#">苹果味</a></li>
+									<li><a href="#">橘子味</a></li>
+								</ul>
+							</li>
+							<li><a href="#">M&amp;M'S</a></li>
+							<li><a href="#">本杰瑞</a></li>
+							<li><a href="#">德芙</a></li>
+						</ul>
+					</li>
+					<li><a href="">品牌故事</a></li>
+					<li><a href="">会员活动</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="banner"><!-- 广告区 -->
+			<div class="left">
+				<div class="wen">
+					<span>当前位置/首页/商品分类/M&M'S/M&M'S巧克力豆冰淇淋</span>
+				</div>
+				<div id="ex1"><img src="../imgs/mm_big.png" alt="M&M'S巧克力豆冰淇淋"></div>
+			</div>
+			<div class="right">
+				<ul>
+					<li class="lname">M&M'S巧克力豆冰淇淋</li>
+					<li class="lprice">价格：127.58元</li>
+					<li class="lweight">克数：500克</li>
+					<li class="lnumber">选购数量：<input type="text" placeholder="1" style="text-align: center;" name="shu"></li>
+					<li><a href="#"><span>购买<span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="du"><!-- 选项卡部分 -->
+			<ul>
+				<li id="change"><a href="#">商品展示</a></li>
+				<li><a href="#">商品参数</a></li>
+				<li><a href="#">品质保障</a></li>
+			</ul>
+		</div>
+		<div class="pagebody" id="page"><!-- 选项卡对应内容 -->
+			<div><img src="../imgs/1.png"></div>
+			<div class="yin">
+				<ul>
+					<li>产品参数：</li>
+					<li>厂名：美国</li>
+					<li>厂址：美国</li>
+					<li>厂家联系方式：123456789</li>
+					<li>配料表：奶油、水、白砂糖、玉米糖浆、脱脂牛奶、蛋黄、椰子油、黄油、碳酸氢钠、食用盐</li>
+					<li>储藏方法：零下20度储存&nbsp;&nbsp;保质期：&nbsp;365天</li>
+					<li>食品添加剂：瓜尔胶、卡拉胶、天然食用香料</li>
+					<li>包装方式：散装</li>
+					<li>糕点种类：冰淇淋</li>
+					<li>重量(g)：533</li>
+					<li>品牌：M&M'&nbsp;&nbsp;S</li>
+					<li>系列：两杯装</li>
+					<li>产地：美国</li>
+				</ul>
+			</div>
+			<div class="yin"><img src="../imgs/2.jpg"></div>
+		</div>
+		<div class="footer"><!-- 尾部 -->
+			<p>
+				COPYRIGHT&nbsp;@
+				<br>
+				泸ICP备13018738号-1&nbsp;食品流通许可证SP3101151210050229
+			</p>
+		</div>
+	</div>
+<!-- 图片放大（引用jQuery插件） -->
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script src="../js/jquery.zoom.min.js"></script>
+	<script>
+		$(function(){
+			$('#ex1').zoom();
+		});
+	</script>
+<!-- 选项卡 -->
+	<script>
+		var page=document.getElementById('page');
+		var aDiv=page.getElementsByTagName('div');
+		var ul=document.getElementById('du');
+		var aLi=ul.getElementsByTagName('li');
+		for(var i=0;i<3;i++)
+		{
+			aDiv[i].index=i;
+			aLi[i].index=i;
+			aLi[i].onclick=function()
+			{
+				for(var j=0;j<3;j++)
+				{
+					aLi[j].id="";
+					aDiv[j].style.display="none";
+				}
+				aLi[this.index].id="change";
+				aDiv[this.index].style.display="block";
+				return false;
+			}
+		}
+	</script>
+	<!-- 弹出菜单 -->
+	<script>
+/*$(function()
+		{
+			
+			$(".goodsInfo .product-btn a").click(function(){
+				var pro_name = $(".goodsTitle").text();
+				var pro_price = $(".price").text();
+				var pro_weight = $(".weight").text();
+				var pro_num = $(".numinput").val();
+				var dialog = "感谢您的购买。\n您购买的\n"+
+							"产品是："+pro_name+";\n"+
+							pro_price+";\n"+
+							pro_weight+";\n"+
+							"数量是："+pro_num;
+				alert(dialog);
+				return false;
+			});
+		});
+*/
+	/**$(function()
+		{
+			$(".right a").click(function(){
+				var pro_name=$(".lname").text;
+				var pro_price=$(".lprice").text;
+				var pro_weight=$(".lweight").text;
+				var pro_num=$(".lnumber").val;
+				var dialog = "感谢您的购买。\n您购买的\n"+
+								"产品是："+pro_name+";\n"+
+								pro_price+";\n"+
+								pro_weight+";\n"+
+								"数量是："+pro_num;
+					alert(dialog);
+					return false;
+			});
+		});*/
+	</script>
+</body>
+</html>
